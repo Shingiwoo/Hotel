@@ -12,13 +12,15 @@ use App\Http\Controllers\Frontend\UserController;
 Route::get('/', [UserController::class, 'index']);
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('frontend.dashboard.user_dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile', [UserController::class, 'UserProfile'])->name('user.profile');
+    Route::post('/profile/store', [UserController::class, 'UserStore'])->name('profile.store');
+    Route::get('/logout', [UserController::class, 'UserLogout'])->name('user.logout');
+    Route::get('/change/password', [UserController::class, 'UserChangePassword'])->name('user.change.password');
+    Route::post('password/update', [UserController::class, 'UserPasswordUpdate'])->name('user.password.update');
 });
 
 require __DIR__.'/auth.php';
