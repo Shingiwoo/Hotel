@@ -41,8 +41,8 @@
                             <td class="align-content-center text-center">{{ $item->position }}</td>
                             <td class="align-content-center text-center">{{ $item->facebook }}</td>
                             <td class="align-content-center text-center">
-                              <a href="" class=" btn btn-warning px-3 radius-30"> Edit</a>
-                              <a href="" class=" btn btn-danger px-3 radius-30"> Delete</a>
+                              <a href="{{ route('edit.team', $item->id) }}" class=" btn btn-warning px-3 radius-30"><i class='bx bx-message-alt-edit'></i> Edit</a>
+                              <a href="{{ route('delete.team', $item->id) }}" class=" btn btn-danger px-3 radius-30" id="delete"><i class='bx bx-message-x' ></i> Delete</a>
                             </td>
                         </tr>
                         @endforeach

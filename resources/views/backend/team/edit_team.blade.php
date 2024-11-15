@@ -1,17 +1,17 @@
 @extends('admin.admin_dashboard')
 @section('admin')
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <div class="page-content">
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-        <div class="breadcrumb-title pe-3">Add Team</div>
+        <div class="breadcrumb-title pe-3">Edit Team</div>
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
                     <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Team</li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit Team</li>
                 </ol>
             </nav>
         </div>
@@ -24,38 +24,41 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
-                    <form id="myForm" action="{{ route('team.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('team.update') }}" method="POST" enctype="multipart/form-data">
                      @csrf
+
+                        <input type="hidden" name="id"  value="{{ $team->id }}"/>
+
                         <div class="card-body">
                             <div class="row mb-3">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Name</h6>
                                 </div>
-                                <div class="form-group col-sm-9 text-secondary">
-                                    <input type="text" name="name" class="form-control"  />
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" name="name" class="form-control" value="{{ $team->name }}" />
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Position</h6>
                                 </div>
-                                <div class="form-group col-sm-9 text-secondary">
-                                    <input type="text" name="position" class="form-control" />
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" name="position" class="form-control" value="{{ $team->position }}" />
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Facebook</h6>
                                 </div>
-                                <div class="form-group col-sm-9 text-secondary">
-                                    <input type="text" name="facebook" class="form-control"  />
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" name="facebook" class="form-control" value="{{ $team->facebook }}" />
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Image</h6>
                                 </div>
-                                <div class="form-group col-sm-9 text-secondary">
+                                <div class="col-sm-9 text-secondary">
                                     <input class="form-control" name="image" type="file" id="image">
                                 </div>
                             </div>
@@ -65,7 +68,7 @@
                                     <h6 class="mb-0"></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <img id="showImage" src="{{ url('upload/no_image.jpg')}}" alt="Team" class="rounded-circle p-1 bg-primary" width="80"/>
+                                    <img id="showImage" src="{{ asset($team->image)}}" alt="Team" class="rounded-circle p-1 bg-primary" width="80"/>
                                 </div>
                             </div>
 
@@ -83,55 +86,6 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    $(document).ready(function (){
-        $('#myForm').validate({
-            rules: {
-                name: {
-                    required : true,
-                },
-                position: {
-                    required : true,
-                },
-                facebook: {
-                    required : true,
-                },
-                image: {
-                    required : true,
-                },
-
-            },
-            messages :{
-                name: {
-                    required : 'Please Enter Team Name',
-                },
-                position: {
-                    required : 'Please Enter Team Position',
-                },
-                facebook: {
-                    required : 'Please Enter Facebook Url',
-                },
-                image: {
-                    required : 'Please Select Image',
-                },
-
-
-            },
-            errorElement : 'span',
-            errorPlacement: function (error,element) {
-                error.addClass('invalid-feedback');
-                element.closest('.form-group').append(error);
-            },
-            highlight : function(element, errorClass, validClass){
-                $(element).addClass('is-invalid');
-            },
-            unhighlight : function(element, errorClass, validClass){
-                $(element).removeClass('is-invalid');
-            },
-        });
-    });
-
-</script>
 <script type="text/javascript">
     $(document).ready(function(){
         $('#image').change(function(e){

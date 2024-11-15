@@ -26,6 +26,11 @@
     <link rel="stylesheet" href="{{asset('backend/assets/css/dark-theme.css')}}" />
     <link rel="stylesheet" href="{{asset('backend/assets/css/semi-dark.css')}}" />
     <link rel="stylesheet" href="{{asset('backend/assets/css/header-colors.css')}}" />
+
+    <!-- sweetalert2 Style CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="{{ asset('backend/assets/js/code.js') }}"></script>
+
     <!-- Toastr Style CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <!-- dataTables Style CSS -->
@@ -66,6 +71,7 @@
     <script src="{{asset('backend/assets/js/bootstrap.bundle.min.js')}}"></script>
     <!--plugins-->
     <script src="{{asset('backend/assets/js/jquery.min.js')}}"></script>
+    <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
     <script src="{{asset('backend/assets/plugins/simplebar/js/simplebar.min.js')}}"></script>
     <script src="{{asset('backend/assets/plugins/metismenu/js/metisMenu.min.js')}}"></script>
     <script src="{{asset('backend/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js')}}"></script>
