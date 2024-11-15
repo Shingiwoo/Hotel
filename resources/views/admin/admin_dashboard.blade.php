@@ -12,6 +12,7 @@
     <link href="{{asset('backend/assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet" />
     <link href="{{asset('backend/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css')}}" rel="stylesheet" />
     <link href="{{asset('backend/assets/plugins/metismenu/css/metisMenu.min.css')}}" rel="stylesheet" />
+
     <!-- loader-->
     <link href="{{asset('backend/assets/css/pace.min.css')}}" rel="stylesheet" />
     <script src="{{asset('backend/assets/js/pace.min.js')}}"></script>
@@ -27,6 +28,12 @@
     <link rel="stylesheet" href="{{asset('backend/assets/css/header-colors.css')}}" />
     <!-- Toastr Style CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+    <!-- dataTables Style CSS -->
+	<link href="{{ asset('backend/assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
+
+
+
+
     <title>Admin Dashboard | Lokal Hotel</title>
 </head>
 
@@ -97,6 +104,16 @@
     }
     @endif
     </script>
+
+
+    <script src="{{ asset('backend/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('backend/') }}assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        } );
+    </script>
+
 </body>
 
 </html>

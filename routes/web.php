@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\Frontend\UserController;
 
 // Route::get('/', function () {
@@ -40,3 +41,15 @@ Route::middleware(['auth', 'roles:admin'])->group(function(){
 
 });
 
+// Admin Group Middlware
+Route::middleware(['auth', 'roles:admin'])->group(function(){
+
+    // Team all Route
+    Route::controller(TeamController::class)->group(function(){
+
+        Route::get('/all/team', 'AllTeam')->name('all.team');
+        Route::get('/add/team', 'AddTeam')->name('add.team');
+        Route::post('/team/store', 'StoreTeam')->name('team.store');
+    });
+
+});

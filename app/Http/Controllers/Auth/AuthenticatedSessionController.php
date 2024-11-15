@@ -36,7 +36,7 @@ class AuthenticatedSessionController extends Controller
 
         $notification = array(
             'message' => 'User '.$username.' Login Successfully',
-            'alert-type' => 'Info'
+            'alert-type' => 'info'
         );
 
         $url = '';
