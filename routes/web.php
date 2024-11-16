@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Backend\RoomController;
 use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Backend\RoomTypeController;
@@ -69,6 +70,13 @@ Route::middleware(['auth', 'roles:admin'])->group(function(){
         Route::get('/room/type/list', 'RoomTypeList')->name('room.type.list');
         Route::get('/add/room/type', 'AddRoomType')->name('add.room.type');
         Route::post('/room/type/store', 'RoomTypeStore')->name('room.type.store');
+    });
+
+    // Room all Route
+    Route::controller(RoomController::class)->group(function(){
+
+        Route::get('/edit/room/{id}', 'EditRoom')->name('edit.room');
+
     });
 
 

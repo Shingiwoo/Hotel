@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
+use App\Models\Room;
 use App\Models\RoomType;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class RoomTypeController extends Controller
 {
@@ -21,9 +22,14 @@ class RoomTypeController extends Controller
 
     public function RoomTypeStore(Request $request){
 
-        RoomType::insert([
+        $roomtype_id = RoomType::insertGetId([
             'name' => $request ->name,
         ]);
+
+        Room::insert([
+            'roomtype_id' => $roomtype_id,
+        ]);
+
 
         $notification = [
             'message' => 'Tipe kamar baru berhasil di tambahkan!',

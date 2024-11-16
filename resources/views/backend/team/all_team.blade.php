@@ -36,7 +36,7 @@
                         @foreach ( $team as $key=> $item )
                         <tr>
                             <td class="align-content-center text-center">{{ $key+1 }}</td>
-                            <td class="align-content-center"> <img src="{{ asset($item->image) }}" alt="" style="width: 70px; height: 40px;"/> </td>
+                            <td class="align-content-center text-center"> <img src="{{ asset($item->image) }}" alt="" style="width: 70px; height: 40px;"/> </td>
                             <td class="align-content-center text-center">{{ $item->name }}</td>
                             <td class="align-content-center text-center">{{ $item->position }}</td>
                             <td class="align-content-center text-center">{{ $item->facebook }}</td>

@@ -119,6 +119,14 @@
             $('#example').DataTable();
         } );
     </script>
+    <script src="https://cdn.tiny.cloud/1/kd7bfxzduisaqjsdv36x2geaw68h9i2k2ao5jaeg125b56ug/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+       tinymce.init({
+         selector: 'textarea#myeditorinstance', // Replace this CSS selector to match the placeholder element for TinyMCE
+         plugins: 'table lists',
+         toolbar: 'undo redo | blocks| bold italic | bullist numlist | code | table'
+       });
+    </script>
 
 </body>
 

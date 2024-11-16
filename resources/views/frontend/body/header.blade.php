@@ -24,29 +24,33 @@
                             <i class='bx bx-phone-call'></i>
                             <a href="tel:+1-(123)-456-7890">+1 (123) 456 7890</a>
                         </li>
-                        @auth
+                            @auth
+                                @if(auth()->user()->role === 'admin')
+                                    <li>
+                                        <i class='bx bxs-dashboard'></i>
+                                        <a href="{{ route('admin.dashboard') }}">Dashboard</a>
+                                    </li>
+                                @else
+                                    <li>
+                                        <i class='bx bxs-dashboard'></i>
+                                        <a href="{{ route('dashboard') }}">Dashboard</a>
+                                    </li>
+                                @endif
+                                <li>
+                                    <i class='bx bxs-log-out'></i>
+                                    <a href="{{ route('user.logout') }}">Logout</a>
+                                </li>
+                            @else
+                            <li>
+                                <i class='bx bxs-log-in'></i>
+                                <a href="{{ route('login') }}">login</a>
+                            </li>
+                            <li>
+                                <i class='bx bxs-user-rectangle'></i>
+                                <a href="{{ route('register') }}">register</a>
+                            </li>
 
-                        <li>
-                            <i class='bx bxs-dashboard'></i>
-                            <a href="{{ route('dashboard') }}">Dashboard</a>
-                        </li>
-                        <li>
-                            <i class='bx bxs-log-out'></i>
-                            <a href="{{ route('user.logout') }}">Logout</a>
-                        </li>
-
-                        @else
-
-                        <li>
-                            <i class='bx bxs-log-in'></i>
-                            <a href="{{ route('login') }}">login</a>
-                        </li>
-                        <li>
-                            <i class='bx bxs-user-rectangle'></i>
-                            <a href="{{ route('register') }}">register</a>
-                        </li>
-
-                        @endauth
+                            @endauth
 
 
                     </ul>

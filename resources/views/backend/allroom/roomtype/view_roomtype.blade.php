@@ -32,13 +32,22 @@
                     </thead>
                     <tbody>
                         @foreach ( $allData as $key=> $item )
+
+                        @php
+                            $rooms = App\Models\Room::where('roomtype_id', $item->id)->get();
+                        @endphp
+
                         <tr>
                             <td class="align-content-center text-center">{{ $key+1 }}</td>
-                            <td class="align-content-center"> </td>
+                            <td class="align-content-center text-center"> <img src="{{ !empty($item->room->image) ? url('upload/roomimg/'.$item-room->image) : url('upload/no_image.jpg') }}" alt="roomimage" style="width: 80px; height: 50px;"/> </td>
+
                             <td class="align-content-center text-center">{{ $item->name }}</td>
+
                             <td class="align-content-center text-center">
-                              <a href="#" class=" btn btn-warning px-3 radius-30"><i class='bx bx-message-alt-edit'></i> Edit</a>
+                            @foreach ($rooms as $rm)
+                              <a href="{{ route('edit.room', $rm->id) }}" class=" btn btn-warning px-3 radius-30"><i class='bx bx-message-alt-edit'></i> Edit</a>
                               <a href="#" class=" btn btn-danger px-3 radius-30" id="delete"><i class='bx bx-message-x' ></i> Delete</a>
+                            @endforeach
                             </td>
                         </tr>
                         @endforeach
