@@ -8,7 +8,7 @@
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
-                    <a href="{{ route('add.team') }}" class=" btn btn-outline-primary px-5 radius-30"> <i class='bx bx-add-to-queue'></i> Add Team</a>
+                    <a href="{{ route('add.room.type') }}" class=" btn btn-outline-primary px-5 radius-30"> <i class='bx bx-add-to-queue'></i> Add Room Type</a>
                 </ol>
             </nav>
         </div>
@@ -16,7 +16,7 @@
         </div>
     </div>
     <!--end breadcrumb-->
-    <h6 class="mb-0 text-uppercase">All Team</h6>
+    <h6 class="mb-0 text-uppercase">Room Type List</h6>
     <hr/>
     <div class="card">
         <div class="card-body">
@@ -27,22 +27,18 @@
                             <th>Sl</th>
                             <th>Image</th>
                             <th>Name</th>
-                            <th>Position</th>
-                            <th>Facebook</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ( $team as $key=> $item )
+                        @foreach ( $allData as $key=> $item )
                         <tr>
                             <td class="align-content-center text-center">{{ $key+1 }}</td>
-                            <td class="align-content-center"> <img src="{{ asset($item->image) }}" alt="" style="width: 70px; height: 40px;"/> </td>
+                            <td class="align-content-center"> </td>
                             <td class="align-content-center text-center">{{ $item->name }}</td>
-                            <td class="align-content-center text-center">{{ $item->position }}</td>
-                            <td class="align-content-center text-center">{{ $item->facebook }}</td>
                             <td class="align-content-center text-center">
-                              <a href="{{ route('edit.team', $item->id) }}" class=" btn btn-warning px-3 radius-30"><i class='bx bx-message-alt-edit'></i> Edit</a>
-                              <a href="{{ route('delete.team', $item->id) }}" class=" btn btn-danger px-3 radius-30" id="delete"><i class='bx bx-message-x' ></i> Delete</a>
+                              <a href="#" class=" btn btn-warning px-3 radius-30"><i class='bx bx-message-alt-edit'></i> Edit</a>
+                              <a href="#" class=" btn btn-danger px-3 radius-30" id="delete"><i class='bx bx-message-x' ></i> Delete</a>
                             </td>
                         </tr>
                         @endforeach

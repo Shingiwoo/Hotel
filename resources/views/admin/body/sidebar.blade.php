@@ -23,9 +23,12 @@
                 <div class="menu-title">Dashboard</div>
             </a>
         </li>
+
+        {{-- =============================== Manage Team ================================== --}}
+
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bx bx-category"></i>
+                <div class="parent-icon"><i class='bx bxl-microsoft-teams'></i>
                 </div>
                 <div class="menu-title">Manage Team</div>
             </a>
@@ -36,6 +39,9 @@
                 </li>
             </ul>
         </li>
+
+        {{-- =============================== Book Area ================================== --}}
+
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
@@ -47,6 +53,23 @@
                 </li>
             </ul>
         </li>
+
+        {{-- =============================== Book Area ================================== --}}
+
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bxs-door-open'></i>
+                </div>
+                <div class="menu-title">Manage Room</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('room.type.list') }}"><i class='bx bx-radio-circle'></i>Room Type List</a>
+                </li>
+            </ul>
+        </li>
+
+
+
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cart'></i>

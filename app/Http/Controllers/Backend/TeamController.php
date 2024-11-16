@@ -96,6 +96,7 @@ class TeamController extends Controller
                 'message' => 'Data tim berhasil diperbarui dengan gambar baru',
                 'alert-type' => 'success'
             ];
+
         } else {
             // Update data tim tanpa mengubah gambar
             $team->update([
