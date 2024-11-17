@@ -39,7 +39,7 @@
 
                         <tr>
                             <td class="align-content-center text-center">{{ $key+1 }}</td>
-                            <td class="align-content-center text-center"> <img src="{{ !empty($item->room->image) ? url('upload/roomimg/'.$item-room->image) : url('upload/no_image.jpg') }}" alt="roomimage" style="width: 80px; height: 50px;"/> </td>
+                            <td class="align-content-center text-center"> <img src="{{ !empty($item->room->image) ? url('upload/roomimg/'.$item->room->image) : url('upload/no_image.jpg') }}" alt="roomimage" style="width: 80px; height: 50px;"/> </td>
 
                             <td class="align-content-center text-center">{{ $item->name }}</td>
 
