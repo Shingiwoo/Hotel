@@ -8,16 +8,19 @@
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
-                    <a href="{{ route('add.room.type') }}" class=" btn btn-outline-primary px-5 radius-30"> <i class='bx bx-add-to-queue'></i> Add Room Type</a>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Room Type List</li>
                 </ol>
             </nav>
         </div>
         <div class="ms-auto">
+            <div class="btn-group">
+                <a href="{{ route('add.room.type') }}" class=" btn btn-outline-primary px-5"> <i class='bx bx-add-to-queue'></i> Add Room Type</a>
+            </div>
         </div>
     </div>
     <!--end breadcrumb-->
-    <h6 class="mb-0 text-uppercase">Room Type List</h6>
-    <hr/>
     <div class="card">
         <div class="card-body">
             <div class="table-responsive">
@@ -46,7 +49,7 @@
                             <td class="align-content-center text-center">
                             @foreach ($rooms as $rm)
                               <a href="{{ route('edit.room', $rm->id) }}" class=" btn btn-warning px-3 radius-30"><i class='bx bx-message-alt-edit'></i> Edit</a>
-                              <a href="#" class=" btn btn-danger px-3 radius-30" id="delete"><i class='bx bx-message-x' ></i> Delete</a>
+                              <a href="{{ route('delete.room',$rm->id) }}" class=" btn btn-danger px-3 radius-30" id="delete"><i class='bx bx-message-x' ></i> Delete</a>
                             @endforeach
                             </td>
                         </tr>

@@ -8,15 +8,19 @@
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
-                    <a href="{{ route('add.team') }}" class=" btn btn-outline-primary px-5 radius-30"> <i class='bx bx-add-to-queue'></i> Add Team</a>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">All Team</li>
                 </ol>
             </nav>
         </div>
         <div class="ms-auto">
+            <div class="btn-group">
+                <a href="{{ route('add.team') }}" class=" btn btn-outline-primary px-5"> <i class='bx bx-add-to-queue'></i> Add Team</a>
+            </div>
         </div>
     </div>
     <!--end breadcrumb-->
-    <h6 class="mb-0 text-uppercase">All Team</h6>
     <hr/>
     <div class="card">
         <div class="card-body">
@@ -36,7 +40,7 @@
                         @foreach ( $team as $key=> $item )
                         <tr>
                             <td class="align-content-center text-center">{{ $key+1 }}</td>
-                            <td class="align-content-center text-center"> <img src="{{ asset($item->image) }}" alt="" style="width: 70px; height: 40px;"/> </td>
+                            <td class="align-content-center text-center"> <img src="{{ asset($item->image) }}" alt="" style="width: 44px; height: 60px;"/> </td>
                             <td class="align-content-center text-center">{{ $item->name }}</td>
                             <td class="align-content-center text-center">{{ $item->position }}</td>
                             <td class="align-content-center text-center">{{ $item->facebook }}</td>

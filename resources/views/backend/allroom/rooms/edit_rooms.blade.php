@@ -116,10 +116,8 @@
                                                     <label for="input7" class="form-label">Room View </label>
                                                     <select name="view" id="input7" class="form-select">
                                                         <option selected="">Choose...</option>
-                                                        <option value="Sea View" {{ $editData->view == 'Sea
-                                                            View'?'selected':''}}>Sea View </option>
-                                                        <option value="Hill View" {{ $editData->view == 'Hill
-                                                            View'?'selected':''}}>Hill View </option>
+                                                        <option value="Sea View" {{ $editData->view == 'Sea View'?'selected':''}}>Sea View </option>
+                                                        <option value="Hill View" {{ $editData->view == 'Hill View'?'selected':''}}>Hill View </option>
 
                                                     </select>
                                                 </div>
@@ -128,12 +126,9 @@
                                                     <label for="input7" class="form-label">Bed Style</label>
                                                     <select name="bed_style" id="input7" class="form-select">
                                                         <option selected="">Choose...</option>
-                                                        <option value="Queen Bed" {{ $editData->bed_style == 'Queen
-                                                            Bed'?'selected':''}}> Queen Bed </option>
-                                                        <option value="Twin Bed" {{ $editData->bed_style == 'Twin
-                                                            Bed'?'selected':''}}>Twin Bed </option>
-                                                        <option value="King Bed" {{ $editData->bed_style == 'King
-                                                            Bed'?'selected':''}}>King Bed </option>
+                                                        <option value="Queen Bed" {{ $editData->bed_style == 'Queen Bed'?'selected':''}}> Queen Bed </option>
+                                                        <option value="Twin Bed" {{ $editData->bed_style == 'Twin Bed'?'selected':''}}>Twin Bed </option>
+                                                        <option value="King Bed" {{ $editData->bed_style == 'King Bed'?'selected':''}}>King Bed </option>
                                                     </select>
                                                 </div>
 
@@ -275,17 +270,19 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    @foreach ($allroomNo as $item)
                                                     <tr class="align-content-center text-center">
-                                                        <td scope="row"  class="align-content-center text-center">1</td>
-                                                        <td class="align-content-center text-center">Mark</td>
+                                                        <td scope="row"  class="align-content-center text-center">{{ $item->room_no }}</td>
+                                                        <td class="align-content-center text-center">{{ $item->status }}</td>
                                                         <td class="align-content-center text-center">
-                                                            <a href="" class=" btn btn-warning px-3 radius-30"><i
+                                                            <a href="{{ route('edit.roomno',$item->id) }}" class=" btn btn-warning px-3 radius-30"><i
                                                                     class='bx bx-message-alt-edit'></i> Edit</a>
-                                                            <a href="" class=" btn btn-danger px-3 radius-30"
+                                                            <a href="{{ route('delete.roomno',$item->id) }}" class=" btn btn-danger px-3 radius-30"
                                                                 id="delete"><i class='bx bx-message-x'></i> Delete</a>
 
                                                         </td>
                                                     </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
